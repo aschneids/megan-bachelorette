@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megan's Bachelorette | Florida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sand: #E8DED1;
+            --ocean: #2C5F5D;
+            --ocean-light: #4A8583;
+            --coral: #C17F6E;
+            --coral-light: #D4A59A;
+            --cream: #FAF8F5;
+            --charcoal: #2D2D2D;
+            --gold: #C9A86C;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: url('https://images.unsplash.com/photo-1744783721972-cdf3c64c14f0?ixlib=rb-4.1.0&w=1920&q=80') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.1) 0%,
+                rgba(0, 0, 0, 0.2) 50%,
+                rgba(0, 0, 0, 0.4) 100%
+            );
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"><path fill="%23FAF8F5" d="M0,64 C480,150 960,0 1440,96 L1440,150 L0,150 Z"></path></svg>') bottom/cover no-repeat;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pre-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .bride-name {
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
+            font-size: 10rem;
+            color: white;
+            letter-spacing: 0.02em;
+            margin-bottom: 0;
+            text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .location-badge {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+
+        .location-badge span {
+            opacity: 0.9;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: rgba(255,255,255,0.5);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 1.2s forwards;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            opacity: 0.6 !important;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0));
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { transform: scaleY(1); opacity: 0.5; }
+            50% { transform: scaleY(1.1); opacity: 1; }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 7rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.75rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            line-height: 1.2;
+        }
+
+        /* Details Section */
+        .details {
+            background: var(--cream);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--sand);
+            border: 1px solid var(--sand);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.04);
+        }
+
+        .detail-card {
+            background: var(--cream);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .detail-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--coral);
+            transition: width 0.4s ease;
+        }
+
+        .detail-card:hover {
+            background: white;
+        }
+
+        .detail-card:hover::after {
+            width: 40px;
+        }
+
+        .detail-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ocean);
+            margin-bottom: 1rem;
+        }
+
+        .detail-card p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            color: var(--charcoal);
+            line-height: 1.7;
+        }
+
+        .detail-card p em {
+            font-size: 0.95rem;
+            color: var(--coral);
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .detail-card.full-width {
+            grid-column: 1 / -1;
+            padding: 2.5rem 2rem;
+        }
+
+        .detail-card.full-width::after {
+            display: none;
+        }
+
+        .airports {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 0.5rem;
+        }
+
+        .airport {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .airport strong {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--ocean);
+            letter-spacing: 2px;
+        }
+
+        .airport span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+        }
+
+        .airport em {
+            font-size: 0.9rem;
+            color: var(--coral);
+        }
+
+        /* Accommodation Section */
+        .accommodation {
+            background: var(--sand);
+            max-width: none;
+            padding: 7rem 2rem;
+        }
+
+        .house-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .house-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+
+        .house-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .house-card:hover .house-image {
+            transform: scale(1.03);
+        }
+
+        .house-image-wrapper {
+            overflow: hidden;
+        }
+
+        .house-info {
+            padding: 2.5rem 3rem;
+            text-align: center;
+        }
+
+        .house-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .house-location {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ocean);
+            margin-bottom: 1.25rem;
+            font-weight: 500;
+        }
+
+        .house-description {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .house-link {
+            display: inline-block;
+            background: var(--ocean);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .house-link:hover {
+            background: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        /* Itinerary Section */
+        .itinerary {
+            background: var(--ocean);
+            max-width: none;
+            padding: 7rem 2rem;
+        }
+
+        .itinerary .section-label {
+            color: var(--coral-light);
+        }
+
+        .itinerary .section-title {
+            color: white;
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .day-card {
+            background: rgba(255,255,255,0.06);
+            border-radius: 6px;
+            padding: 2rem 1.75rem;
+            border-top: 3px solid var(--coral-light);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .day-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        .day-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .day-card .date {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--coral-light);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .day-item {
+            padding: 0.625rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .day-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .day-item .time {
+            font-size: 0.6rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--coral-light);
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .day-item .activity {
+            font-size: 0.9rem;
+            color: white;
+            line-height: 1.5;
+        }
+
+        .day-item .note {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+            margin-top: 0.25rem;
+            line-height: 1.4;
+        }
+
+        /* Packing List */
+        .packing {
+            background: white;
+        }
+
+        .packing-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .packing-category h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--ocean);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--sand);
+        }
+
+        .packing-item {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            padding: 0.625rem 0;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border-radius: 4px;
+            margin: 0 -0.5rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .packing-item:hover {
+            background: var(--cream);
+        }
+
+        .packing-item .checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--sand);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .packing-item:hover .checkbox {
+            border-color: var(--coral);
+        }
+
+        .packing-item.checked .checkbox {
+            background: var(--ocean);
+            border-color: var(--ocean);
+            transform: scale(1.05);
+        }
+
+        .packing-item.checked .checkbox::after {
+            content: '✓';
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .packing-item span {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            transition: all 0.25s ease;
+        }
+
+        .packing-item.checked span {
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        /* Links Section */
+        .links {
+            background: var(--cream);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .link-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            border: 1px solid var(--sand);
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .link-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .link-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .link-card p {
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .link-card.spotify:hover {
+            border-color: #1DB954;
+        }
+
+        .link-card.splitwise:hover {
+            border-color: #5bc5a7;
+        }
+
+        /* Password Screen */
+        .password-screen {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(180deg, #87CEEB 0%, #B4D7E8 30%, var(--sand) 70%, var(--sand) 100%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .password-screen.hidden {
+            display: none;
+        }
+
+        .password-screen h1 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 4rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .password-screen p {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--ocean);
+            margin-bottom: 2.5rem;
+        }
+
+        .password-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .password-form input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            border: 2px solid var(--sand);
+            border-radius: 4px;
+            background: white;
+            text-align: center;
+            letter-spacing: 2px;
+            transition: border-color 0.3s ease;
+        }
+
+        .password-form input:focus {
+            outline: none;
+            border-color: var(--ocean);
+        }
+
+        .password-form input::placeholder {
+            color: #bbb;
+            letter-spacing: 1px;
+        }
+
+        .password-form button {
+            width: 100%;
+            padding: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: var(--ocean);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .password-form button:hover {
+            background: var(--charcoal);
+        }
+
+        .password-error {
+            color: var(--coral);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .password-error.show {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        footer .brand {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        footer .details {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            background: transparent;
+            padding: 0;
+        }
+
+        .wave-decoration {
+            margin: 1.5rem 0;
+            opacity: 0.2;
+            font-size: 0.9rem;
+            letter-spacing: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .days-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 5rem 1.5rem;
+            }
+
+            .bride-name {
+                font-size: 5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .location-badge {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .divider {
+                width: 40px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .airports {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .days-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .packing-columns {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .house-info {
+                padding: 2rem 1.5rem;
+            }
+
+            footer .brand {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bride-name {
+                font-size: 3.5rem;
+            }
+
+            .pre-title {
+                font-size: 0.7rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .house-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Screen -->
+    <div class="password-screen" id="passwordScreen">
+        <h1>Megan's</h1>
+        <p>Enter the password to continue</p>
+        <form class="password-form" onsubmit="checkPassword(event)">
+            <input type="password" id="passwordInput" placeholder="Password" autocomplete="off" autofocus>
+            <button type="submit">Enter</button>
+        </form>
+        <p class="password-error" id="passwordError">Incorrect password, try again</p>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <p class="pre-title">You're Invited To</p>
+        <h1 class="bride-name">Megan's</h1>
+        <p class="tagline">bachelorette weekend</p>
+        <div class="location-badge">
+            <span>June 4–7</span>
+            <div class="divider"></div>
+            <span>Rosemary Beach, FL</span>
+        </div>
+        <div class="scroll-indicator">Scroll</div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="details">
+        <div class="section-header">
+            <p class="section-label">The Details</p>
+            <h2 class="section-title">What You Need to Know</h2>
+        </div>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>When</h3>
+                <p>June 4–7, 2025<br><em>Thursday through Sunday</em></p>
+            </div>
+            <div class="detail-card">
+                <h3>Where</h3>
+                <p>Rosemary Beach, FL<br><em>30A's charming beach town</em></p>
+            </div>
+            <div class="detail-card">
+                <h3>The Vibe</h3>
+                <p>Relaxed & Celebratory<br><em>Beach days, sunset sips</em></p>
+            </div>
+            <div class="detail-card">
+                <h3>Dress Code</h3>
+                <p>Effortlessly Chic<br><em>Think resort casual</em></p>
+            </div>
+            <div class="detail-card full-width">
+                <h3>Airports</h3>
+                <div class="airports">
+                    <div class="airport">
+                        <strong>VPS</strong>
+                        <span>Destin-Fort Walton Beach</span>
+                        <em>~30 min drive</em>
+                    </div>
+                    <div class="airport">
+                        <strong>ECP</strong>
+                        <span>Panama City Beach</span>
+                        <em>~45 min drive</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Section -->
+    <section class="accommodation">
+        <div class="section-header">
+            <p class="section-label">Where We're Staying</p>
+            <h2 class="section-title">The House</h2>
+        </div>
+        <div class="house-card">
+            <div class="house-image-wrapper">
+                <img src="https://a0.muscache.com/im/pictures/c10c2e34-b524-4f89-94c5-7be3ab2ebf6d.jpg?im_w=1200" alt="Yourcation Awaits Beach Home" class="house-image">
+            </div>
+            <div class="house-info">
+                <h3>Yourcation Awaits</h3>
+                <p class="house-location">Panama City Beach, FL</p>
+                <p class="house-description">A spacious, relaxing beach home perfect for the crew.</p>
+                <a href="https://www.airbnb.com/rooms/39758389?check_in=2026-06-04&check_out=2026-06-07&adults=10" target="_blank" class="house-link">View on Airbnb</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary Section -->
+    <section class="itinerary">
+        <div class="section-header">
+            <p class="section-label">The Weekend</p>
+            <h2 class="section-title">How It's Going Down</h2>
+        </div>
+        <div class="days-grid">
+            <div class="day-card">
+                <h3>Thursday</h3>
+                <p class="date">June 4</p>
+                <div class="day-item">
+                    <p class="time">Afternoon</p>
+                    <p class="activity">Arrive at the Airbnb</p>
+                    <p class="note">Settle in, explore the house</p>
+                </div>
+                <div class="day-item">
+                    <p class="time">Dinner</p>
+                    <p class="activity">Pizza or pasta at the house</p>
+                    <p class="note">Something quick and easy</p>
+                </div>
+                <div class="day-item">
+                    <p class="time">Night</p>
+                    <p class="activity">Powerpoints, games & catching up</p>
+                    <p class="note">Getting to know each other</p>
+                </div>
+            </div>
+            <div class="day-card">
+                <h3>Friday</h3>
+                <p class="date">June 5</p>
+                <div class="day-item">
+                    <p class="time">Afternoon</p>
+                    <p class="activity">Explore Rosemary Beach</p>
+                    <p class="note">Shops, town, and beach time</p>
+                </div>
+                <div class="day-item">
+                    <p class="time">Dinner</p>
+                    <p class="activity">Order in at the house</p>
+                    <p class="note">Eat while getting ready</p>
+                </div>
+                <div class="day-item">
+                    <p class="time">Night</p>
+                    <p class="activity">Big night out</p>
+                </div>
+            </div>
+            <div class="day-card">
+                <h3>Saturday</h3>
+                <p class="date">June 6</p>
+                <div class="day-item">
+                    <p class="time">Morning</p>
+                    <p class="activity">Brunch</p>
+                </div>
+                <div class="day-item">
+                    <p class="time">All Day</p>
+                    <p class="activity">Beach day</p>
+                    <p class="note">Lunch supplies at the house—come and go as you please</p>
+                </div>
+                <div class="day-item">
+                    <p class="time">Dinner</p>
+                    <p class="activity">Nice dinner out</p>
+                </div>
+                <div class="day-item">
+                    <p class="time">Night</p>
+                    <p class="activity">See how we're feeling</p>
+                    <p class="note">Keep it going or relax at the house</p>
+                </div>
+            </div>
+            <div class="day-card">
+                <h3>Sunday</h3>
+                <p class="date">June 7</p>
+                <div class="day-item">
+                    <p class="time">Morning</p>
+                    <p class="activity">Wake up, check out, head home</p>
+                    <p class="note">Until next time!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packing List Section -->
+    <section class="packing">
+        <div class="section-header">
+            <p class="section-label">Essentials</p>
+            <h2 class="section-title">Packing List</h2>
+        </div>
+        <div class="packing-columns">
+            <div class="packing-category">
+                <h4>Beach Days</h4>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Swimsuits</span>
+                </div>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Coverup</span>
+                </div>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>SPF</span>
+                </div>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Sunglasses</span>
+                </div>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Hat</span>
+                </div>
+            </div>
+            <div class="packing-category">
+                <h4>Nights Out</h4>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Going-out outfit</span>
+                </div>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Comfortable heels or sandals</span>
+                </div>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Jewelry</span>
+                </div>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Clutch or small bag</span>
+                </div>
+            </div>
+            <div class="packing-category">
+                <h4>Don't Forget</h4>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Phone charger</span>
+                </div>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Advil & Liquid IV</span>
+                </div>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Cash for tips</span>
+                </div>
+                <div class="packing-item" onclick="toggleCheck(this)">
+                    <div class="checkbox"></div>
+                    <span>Good vibes only</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Links Section -->
+    <section class="links">
+        <div class="section-header">
+            <p class="section-label">Get Involved</p>
+            <h2 class="section-title">Group Links</h2>
+        </div>
+        <div class="links-grid">
+            <a href="https://open.spotify.com/playlist/5OktVjhqMpxSfHAKKsN5A8?si=f6045793c3a74070&pt=6fc626b4d6f4a0db235ab3e392ef6ccf" target="_blank" class="link-card spotify">
+                <div class="icon">🎵</div>
+                <h3>Weekend Playlist</h3>
+                <p>Add your favorite songs for the trip</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="brand">Megan's</p>
+        <p class="wave-decoration">— bachelorette —</p>
+        <p class="details">Rosemary Beach · June 2025</p>
+    </footer>
+
+    <script>
+        // Password protection
+        const SITE_PASSWORD = 'beach2025';  // Change this to your desired password
+        const STORAGE_KEY = 'megan_bach_access';
+
+        function checkAccess() {
+            if (localStorage.getItem(STORAGE_KEY) === 'granted') {
+                document.getElementById('passwordScreen').classList.add('hidden');
+            }
+        }
+
+        function checkPassword(event) {
+            event.preventDefault();
+            const input = document.getElementById('passwordInput');
+            const error = document.getElementById('passwordError');
+
+            if (input.value.toLowerCase() === SITE_PASSWORD.toLowerCase()) {
+                localStorage.setItem(STORAGE_KEY, 'granted');
+                document.getElementById('passwordScreen').classList.add('hidden');
+            } else {
+                error.classList.add('show');
+                input.value = '';
+                input.focus();
+                setTimeout(() => error.classList.remove('show'), 2000);
+            }
+        }
+
+        // Check on page load
+        checkAccess();
+
+        function toggleCheck(element) {
+            element.classList.toggle('checked');
+        }
+
+        // Smooth scroll indicator
+        document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
