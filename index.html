@@ -503,85 +503,18 @@
             line-height: 1.4;
         }
 
-        /* Packing List */
-        .packing {
-            background: white;
-        }
-
-        .packing-columns {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .packing-category h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            color: var(--ocean);
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--sand);
-        }
-
-        .packing-item {
-            display: flex;
-            align-items: center;
-            gap: 0.875rem;
-            padding: 0.625rem 0;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            border-radius: 4px;
-            margin: 0 -0.5rem;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
-
-        .packing-item:hover {
-            background: var(--cream);
-        }
-
-        .packing-item .checkbox {
-            width: 22px;
-            height: 22px;
-            border: 2px solid var(--sand);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.25s ease;
-            flex-shrink: 0;
-        }
-
-        .packing-item:hover .checkbox {
-            border-color: var(--coral);
-        }
-
-        .packing-item.checked .checkbox {
-            background: var(--ocean);
-            border-color: var(--ocean);
-            transform: scale(1.05);
-        }
-
-        .packing-item.checked .checkbox::after {
-            content: '✓';
+        .itinerary-link {
             color: white;
-            font-size: 0.7rem;
-            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid var(--coral-light);
+            transition: border-color 0.2s ease;
         }
 
-        .packing-item span {
-            font-size: 0.9rem;
-            color: var(--charcoal);
-            transition: all 0.25s ease;
+        .itinerary-link:hover {
+            border-color: white;
         }
 
-        .packing-item.checked span {
-            color: #999;
-            text-decoration: line-through;
-        }
-
+        /* Packing List */
         /* Links Section */
         .links {
             background: var(--cream);
@@ -813,11 +746,6 @@
                 gap: 1rem;
             }
 
-            .packing-columns {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
             .house-info {
                 padding: 2rem 1.5rem;
             }
@@ -886,14 +814,6 @@
                 <h3>Where</h3>
                 <p>Rosemary Beach, FL<br><em>30A's charming beach town</em></p>
             </div>
-            <div class="detail-card">
-                <h3>The Vibe</h3>
-                <p>Relaxed & Celebratory<br><em>Beach days, sunset sips</em></p>
-            </div>
-            <div class="detail-card">
-                <h3>Dress Code</h3>
-                <p>Effortlessly Chic<br><em>Think resort casual</em></p>
-            </div>
             <div class="detail-card full-width">
                 <h3>Airports</h3>
                 <div class="airports">
@@ -920,12 +840,11 @@
         </div>
         <div class="house-card">
             <div class="house-image-wrapper">
-                <img src="https://a0.muscache.com/im/pictures/c10c2e34-b524-4f89-94c5-7be3ab2ebf6d.jpg?im_w=1200" alt="Yourcation Awaits Beach Home" class="house-image">
+                <img src="https://a0.muscache.com/im/pictures/c10c2e34-b524-4f89-94c5-7be3ab2ebf6d.jpg?im_w=1200" alt="Beach Home" class="house-image">
             </div>
             <div class="house-info">
-                <h3>Yourcation Awaits</h3>
-                <p class="house-location">Panama City Beach, FL</p>
-                <p class="house-description">A spacious, relaxing beach home perfect for the crew.</p>
+                <p class="house-location"><a href="https://goo.gl/maps/3wa1qTekXoA9vHKy5" target="_blank">192 East Blue Crab Loop, Panama City Beach, FL 32413</a></p>
+                <p class="house-description">Check-in after 4:00 PM · Checkout before 10:00 AM</p>
                 <a href="https://www.airbnb.com/rooms/39758389?check_in=2026-06-04&check_out=2026-06-07&adults=10" target="_blank" class="house-link">View on Airbnb</a>
             </div>
         </div>
@@ -935,7 +854,7 @@
     <section class="itinerary">
         <div class="section-header">
             <p class="section-label">The Weekend</p>
-            <h2 class="section-title">How It's Going Down</h2>
+            <h2 class="section-title">The Plan</h2>
         </div>
         <div class="days-grid">
             <div class="day-card">
@@ -944,44 +863,52 @@
                 <div class="day-item">
                     <p class="time">Afternoon</p>
                     <p class="activity">Arrive at the Airbnb</p>
-                    <p class="note">Settle in, explore the house</p>
+                    <p class="note">Check in after 4 PM</p>
                 </div>
                 <div class="day-item">
                     <p class="time">Dinner</p>
-                    <p class="activity">Pizza or pasta at the house</p>
-                    <p class="note">Something quick and easy</p>
+                    <p class="activity">Something easy at the house</p>
+                    <p class="note">Pizza, pasta, or order in</p>
                 </div>
                 <div class="day-item">
                     <p class="time">Night</p>
-                    <p class="activity">Powerpoints, games & catching up</p>
-                    <p class="note">Getting to know each other</p>
+                    <p class="activity">Games and settling in</p>
+                </div>
+                <div class="day-item">
+                    <p class="time">Outfit</p>
+                    <p class="note">Comfy clothes for a night in</p>
                 </div>
             </div>
             <div class="day-card">
                 <h3>Friday</h3>
                 <p class="date">June 5</p>
                 <div class="day-item">
+                    <p class="time">Brunch · 10:30 AM</p>
+                    <p class="activity"><a href="https://share.google/eFmmMgYmWhmjAUe1C" target="_blank" class="itinerary-link">Havana Beach Bar & Grill</a></p>
+                </div>
+                <div class="day-item">
                     <p class="time">Afternoon</p>
                     <p class="activity">Explore Rosemary Beach</p>
-                    <p class="note">Shops, town, and beach time</p>
+                    <p class="note">Explore the shops downtown</p>
                 </div>
                 <div class="day-item">
                     <p class="time">Dinner</p>
-                    <p class="activity">Order in at the house</p>
-                    <p class="note">Eat while getting ready</p>
+                    <p class="activity"><a href="https://maps.app.goo.gl/NKc6fPxniWcKhi1U8" target="_blank" class="itinerary-link">Ghost Crab Pizza</a></p>
+                    <p class="note">Order in, eat at the house</p>
                 </div>
                 <div class="day-item">
                     <p class="time">Night</p>
                     <p class="activity">Big night out</p>
+                    <p class="note">Bars in Panama City</p>
+                </div>
+                <div class="day-item">
+                    <p class="time">Outfits</p>
+                    <p class="note">Brunch outfit + going-out outfit for the night<br>Megan will be wearing white - feel free to wear any other color</p>
                 </div>
             </div>
             <div class="day-card">
                 <h3>Saturday</h3>
                 <p class="date">June 6</p>
-                <div class="day-item">
-                    <p class="time">Morning</p>
-                    <p class="activity">Brunch</p>
-                </div>
                 <div class="day-item">
                     <p class="time">All Day</p>
                     <p class="activity">Beach day</p>
@@ -996,6 +923,10 @@
                     <p class="activity">See how we're feeling</p>
                     <p class="note">Keep it going or relax at the house</p>
                 </div>
+                <div class="day-item">
+                    <p class="time">Outfits</p>
+                    <p class="note">Beach day outfit + nice dinner outfit</p>
+                </div>
             </div>
             <div class="day-card">
                 <h3>Sunday</h3>
@@ -1003,78 +934,7 @@
                 <div class="day-item">
                     <p class="time">Morning</p>
                     <p class="activity">Wake up, check out, head home</p>
-                    <p class="note">Until next time!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Packing List Section -->
-    <section class="packing">
-        <div class="section-header">
-            <p class="section-label">Essentials</p>
-            <h2 class="section-title">Packing List</h2>
-        </div>
-        <div class="packing-columns">
-            <div class="packing-category">
-                <h4>Beach Days</h4>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Swimsuits</span>
-                </div>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Coverup</span>
-                </div>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>SPF</span>
-                </div>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Sunglasses</span>
-                </div>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Hat</span>
-                </div>
-            </div>
-            <div class="packing-category">
-                <h4>Nights Out</h4>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Going-out outfit</span>
-                </div>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Comfortable heels or sandals</span>
-                </div>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Jewelry</span>
-                </div>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Clutch or small bag</span>
-                </div>
-            </div>
-            <div class="packing-category">
-                <h4>Don't Forget</h4>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Phone charger</span>
-                </div>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Advil & Liquid IV</span>
-                </div>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Cash for tips</span>
-                </div>
-                <div class="packing-item" onclick="toggleCheck(this)">
-                    <div class="checkbox"></div>
-                    <span>Good vibes only</span>
+                    <p class="note">Check out before 10 AM</p>
                 </div>
             </div>
         </div>
@@ -1083,7 +943,7 @@
     <!-- Links Section -->
     <section class="links">
         <div class="section-header">
-            <p class="section-label">Get Involved</p>
+            <p class="section-label">Resources</p>
             <h2 class="section-title">Group Links</h2>
         </div>
         <div class="links-grid">
@@ -1131,10 +991,6 @@
 
         // Check on page load
         checkAccess();
-
-        function toggleCheck(element) {
-            element.classList.toggle('checked');
-        }
 
         // Smooth scroll indicator
         document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
